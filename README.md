@@ -10,7 +10,7 @@ more easily readable src soon.
 
 block game larping 
 
-# what is does:
+# what it does:
 
 - Logs your Discord Token
 - Steals Future Alts
