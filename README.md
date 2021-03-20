@@ -7,7 +7,7 @@ Made the code more readable.
 
 # What is this malware?
 
-This malware is a phishing tool/detail sniffer, stealing data for impersonation over Discord, accounts for the utility client Future, etc etc. It may also attempt to download the end user file of a remote administration tool (RAT), and execute it on the victims computer.
+This malware is a phishing tool/detail sniffer, stealing data for impersonation over Discord, accounts for the utility client Future, etc etc, and it sends the stolen information to a discord server. It is NOT a remote administration tool (RAT)
 
 # what it does:
 
