@@ -16,7 +16,7 @@ This malware is a phishing tool/detail sniffer, stealing data for impersonation 
 - Steals MC Tokens, Usernames, and Emails from any accounts saved in launcher_profiles.json
 - Steals the contents of your mods directory
 - Steals HWID, OS and username (possibly IP address)
-- Takes a screenshot of your PC
+- Takes a screenshot of your PC (disguised in user documents folder under \Documents\fix.png)
 
 
 
