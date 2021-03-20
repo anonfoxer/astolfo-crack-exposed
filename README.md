@@ -12,13 +12,11 @@ This malware is a phishing tool/detail sniffer, stealing data for impersonation 
 # what it does:
 
 - Logs your Discord Token
-- Steals Future Alts
-- Steals your launcher_profiles.json file
-- Steals mods
-- Steals HWID, IP, OS and username
-- Steals your documents
+- Steals Alts stored in the alts profile of the Future client
+- Steals MC Tokens, Usernames, and Emails from any accounts saved in launcher_profiles.json
+- Steals the contents of your mods directory
+- Steals HWID, OS and username (possibly IP address)
 - Takes a screenshot of your PC
-- And more.
 
 
 
